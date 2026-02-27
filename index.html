@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Name — Academic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f4ef;
+      --ink: #1a1710;
+      --muted: #7a7468;
+      --accent: #8b4a2f;
+      --line: #d9d4cb;
+      --card: #f0ece5;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      border-bottom: 1px solid var(--line);
+      padding: 0 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+
+    .site-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    nav { display: flex; gap: 0; }
+
+    nav button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0 1.5rem;
+      height: 64px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    nav button:hover { color: var(--ink); }
+    nav button.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ── PAGES ── */
+    .page { display: none; animation: fadeUp 0.4s ease both; }
+    .page.active { display: block; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── HOME ── */
+    .home-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 64px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-left {
+      padding: 8vw 5vw 8vw 5vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      color: var(--ink);
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .hero-links a {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .hero-links a:hover { color: var(--accent); border-color: var(--accent); }
+
+    .hero-right {
+      padding: 8vw 5vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30rem;
+      color: var(--line);
+      position: absolute;
+      top: -4rem;
+      right: -2rem;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .about-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--ink);
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-text p + p { margin-top: 1.25em; }
+
+    .info-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .info-item {
+      padding: 2rem 5vw;
+      border-right: 1px solid var(--line);
+    }
+
+    .info-item:last-child { border-right: none; }
+
+    .info-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .info-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--ink);
+    }
+
+    /* ── INNER PAGES ── */
+    .page-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 5rem 5vw 8rem;
+    }
+
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .page-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 4vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.1;
+    }
+
+    .page-header p {
+      margin-top: 0.75rem;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .section { margin-bottom: 3.5rem; }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    /* research cards */
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 1.75rem 2rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .project-card:hover { border-color: var(--accent); }
+
+    .project-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid var(--line);
+      padding: 2px 8px;
+      margin-top: 0.75rem;
+      margin-right: 0.4rem;
+      color: var(--muted);
+    }
+
+    /* publications */
+    .pub-entry {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .pub-year {
+      font-size: 11px;
+      color: var(--accent);
+      padding-top: 3px;
+      font-weight: 400;
+    }
+
+    .pub-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+
+    .pub-authors {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .pub-journal {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    /* teaching */
+    .course-row {
+      display: grid;
+      grid-template-columns: 6rem 1fr auto;
+      gap: 1.5rem;
+      align-items: baseline;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .course-code {
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .course-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+    }
+
+    .course-term {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .teaching-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border-left: 2px solid var(--accent);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .home-hero { grid-template-columns: 1fr; }
+      .hero-left { border-right: none; border-bottom: 1px solid var(--line); }
+      .hero-right::before { font-size: 15rem; }
+      .info-strip { grid-template-columns: 1fr; }
+      .info-item { border-right: none; border-bottom: 1px solid var(--line); }
+      .course-row { grid-template-columns: 5rem 1fr; }
+      .course-term { grid-column: 2; }
+      nav button { padding: 0 0.75rem; font-size: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#" class="site-name" onclick="showPage('home');return false;">Your Name</a>
+    <nav>
+      <button class="active" onclick="showPage('home')">About</button>
+      <button onclick="showPage('research')">Research</button>
+      <button onclick="showPage('publications')">Publications</button>
+      <button onclick="showPage('teaching')">Teaching</button>
+    </nav>
+  </header>
+
+  <!-- HOME -->
+  <div id="home" class="page active">
+    <div class="home-hero">
+      <div class="hero-left">
+        <div class="eyebrow">University · Department</div>
+        <h1 class="hero-name">Your<br>Name</h1>
+        <p class="hero-title">Assistant Professor of [Field]</p>
+        <div class="hero-links">
+          <a href="mailto:you@university.edu">Email</a>
+          <a href="#">CV</a>
+          <a href="#">Google Scholar</a>
+          <a href="#">Twitter / X</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="about-text">
+          <p>Welcome! I am an Assistant Professor in the Department of [Your Department] at [Your University]. My work sits at the intersection of [Field A] and [Field B], with a focus on [core research theme].</p>
+          <p>Before joining [University], I completed my PhD at [PhD Institution] and held a postdoctoral fellowship at [Postdoc Institution]. I have been fortunate to collaborate with researchers across [relevant fields or regions].</p>
+          <p>I am always happy to connect with prospective students and collaborators. Feel free to reach out by email.</p>
+        </div>
+      </div>
+    </div>
+    <div class="info-strip">
+      <div class="info-item">
+        <div class="info-label">Affiliation</div>
+        <div class="info-value">[Your University]</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Research Interests</div>
+        <div class="info-value">[Topic A], [Topic B], [Topic C]</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Contact</div>
+        <div class="info-value">you@university.edu</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESEARCH -->
+  <div id="research" class="page">
+    <div class="page-inner">
+      <div class="page-header">
+        <h1>Research</h1>
+        <p>Current projects and ongoing work</p>
+      </div>
+      <div class="section">
+        <div class="section-label">Current Projects</div>
+        <div class="project-card">
+          <h3>Project Title One</h3>
+          <p>A brief description of this research project. What question does it address, what methods are used, and what are the broader implications?</p>
+          <span class="tag">Methods</span><span class="tag">Topic A</span><span class="tag">Funded</span>
+        </div>
+        <div class="project-card">
+          <h3>Project Title Two</h3>
+          <p>A brief description of this second research project. Explain the key theoretical contribution or empirical focus and note any collaborators or funding sources.</p>
+          <span class="tag">Collaborative</span><span class="tag">Topic B</span>
+        </div>
+        <div class="project-card">
+          <h3>Project Title Three</h3>
+          <p>A third project description. If this is in early stages, describe the research question and motivation rather than results.</p>
+          <span class="tag">Working Paper</span><span class="tag">Topic C</span>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label">Broad Research Themes</div>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; line-height:1.8;">
+          My research broadly engages with [Theme 1], exploring how [brief explanation]. A second strand of work examines [Theme 2], drawing on [methods or disciplines]. I am particularly interested in [specific angle or puzzle that motivates your work].
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PUBLICATIONS -->
+  <div id="publications" class="page">
+    <div class="page-inner">
+      <div class="page-header">
+        <h1>Publications</h1>
+        <p>Peer-reviewed articles, book chapters, and working papers</p>
+      </div>
+      <div class="section">
+        <div class="section-label">Journal Articles</div>
+        <div class="pub-entry">
+          <div class="pub-year">2024</div>
+          <div>
+            <div class="pub-title">Title of Your Most Recent Article</div>
+            <div class="pub-authors">Your Name, Co-Author Name</div>
+            <div class="pub-journal">Journal of [Field], Vol. 12, No. 3, pp. 100–124</div>
+          </div>
+        </div>
+        <div class="pub-entry">
+          <div class="pub-year">2023</div>
+          <div>
+            <div class="pub-title">Title of Another Article</div>
+            <div class="pub-authors">Your Name</div>
+            <div class="pub-journal">Annual Review of [Field], Vol. 8, pp. 45–70</div>
+          </div>
+        </div>
+        <div class="pub-entry">
+          <div class="pub-year">2022</div>
+          <div>
+            <div class="pub-title">Earlier Published Work Title</div>
+            <div class="pub-authors">Co-Author Name, Your Name</div>
+            <div class="pub-journal">Journal of [Field], Vol. 5, No. 1, pp. 200–230</div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label">Working Papers</div>
+        <div class="pub-entry">
+          <div class="pub-year">2025</div>
+          <div>
+            <div class="pub-title">Title of Working Paper</div>
+            <div class="pub-authors">Your Name</div>
+            <div class="pub-journal">Under review — [Target Journal]</div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-label">Book Chapters</div>
+        <div class="pub-entry">
+          <div class="pub-year">2023</div>
+          <div>
+            <div class="pub-title">Chapter Title</div>
+            <div class="pub-authors">Your Name</div>
+            <div class="pub-journal">in <em>Book Title</em>, ed. Editor Name. Publisher.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEACHING -->
+  <div id="teaching" class="page">
+    <div class="page-inner">
+      <div class="page-header">
+        <h1>Teaching</h1>
+        <p>Undergraduate and graduate courses</p>
+      </div>
+      <div class="section">
+        <div class="section-label">Current &amp; Recent Courses</div>
+        <div class="course-row">
+          <div class="course-code">XXX 101</div>
+          <div class="course-name">Introduction to [Your Field]</div>
+          <div class="course-term">Fall 2024</div>
+        </div>
+        <div class="course-row">
+          <div class="course-code">XXX 250</div>
+          <div class="course-name">Advanced Topics in [Sub-Field]</div>
+          <div class="course-term">Spring 2024</div>
+        </div>
+        <div class="course-row">
+          <div class="course-code">XXX 480</div>
+          <div class="course-name">Graduate Seminar: [Topic]</div>
+          <div class="course-term">Fall 2023</div>
+        </div>
+        <div class="course-row">
+          <div class="course-code">XXX 310</div>
+          <div class="course-name">Research Methods in [Field]</div>
+          <div class="course-term">Spring 2023</div>
+        </div>
+      </div>
+      <div class="teaching-note">
+        I aim to create an inclusive and intellectually rigorous classroom environment. My teaching draws directly on my research and emphasizes critical thinking, close reading of primary sources, and evidence-based argumentation.
+      </div>
+      <div class="section" style="margin-top:2.5rem;">
+        <div class="section-label">Graduate Advising</div>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; line-height:1.8;">
+          I welcome inquiries from prospective PhD students interested in [Research Area]. Please email me with your CV and a brief statement of your research interests before applying. I am currently accepting students for the [Year] cohort.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      const idx = ['home','research','publications','teaching'].indexOf(id);
+      document.querySelectorAll('nav button')[idx].classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
