@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Name — Academic</title>
+  <title>Blake Fauskee</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #f7f4ef;
-      --ink: #1a1710;
-      --muted: #7a7468;
-      --accent: #8b4a2f;
-      --line: #d9d4cb;
-      --card: #f0ece5;
+      --bg: #0f1f14;
+      --ink: #e8efe9;
+      --muted: #7aA882;
+      --accent: #a3d9a5;
+      --line: #1f3626;
+      --card: #162b1c;
     }
 
     html { scroll-behavior: smooth; }
@@ -70,6 +70,8 @@
 
     nav button:hover { color: var(--ink); }
     nav button.active { color: var(--accent); border-bottom-color: var(--accent); }
+    
+    header { background: #0a1a0f; }
 
     /* ── PAGES ── */
     .page { display: none; animation: fadeUp 0.4s ease both; }
@@ -128,14 +130,14 @@
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--ink);
+      color: var(--accent);
       text-decoration: none;
-      border-bottom: 1px solid var(--ink);
+      border-bottom: 1px solid var(--accent);
       padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
+      transition: color 0.2s, border-color 0.2s, opacity 0.2s;
     }
 
-    .hero-links a:hover { color: var(--accent); border-color: var(--accent); }
+    .hero-links a:hover { opacity: 0.7; }
 
     .hero-right {
       padding: 8vw 5vw;
@@ -147,16 +149,31 @@
     }
 
     .hero-right::before {
-      content: '"';
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 30rem;
-      color: var(--line);
+      content: '';
+    }
+
+    .photo-placeholder {
+      width: 160px;
+      height: 200px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .photo-placeholder::before {
+      content: '';
       position: absolute;
-      top: -4rem;
-      right: -2rem;
-      line-height: 1;
-      pointer-events: none;
-      user-select: none;
+      inset: 6px;
+      border: 1px solid var(--line);
     }
 
     .about-text {
@@ -197,6 +214,9 @@
       font-size: 1.05rem;
       color: var(--ink);
     }
+
+    .info-value a { color: var(--accent); text-decoration: none; }
+    .info-value a:hover { opacity: 0.75; }
 
     /* ── INNER PAGES ── */
     .page-inner {
@@ -360,7 +380,7 @@
 <body>
 
   <header>
-    <a href="#" class="site-name" onclick="showPage('home');return false;">Your Name</a>
+    <a href="#" class="site-name" onclick="showPage('home');return false;">Blake Fauskee</a>
     <nav>
       <button class="active" onclick="showPage('home')">About</button>
       <button onclick="showPage('research')">Research</button>
@@ -373,36 +393,36 @@
   <div id="home" class="page active">
     <div class="home-hero">
       <div class="hero-left">
-        <div class="eyebrow">University · Department</div>
-        <h1 class="hero-name">Your<br>Name</h1>
-        <p class="hero-title">Assistant Professor of [Field]</p>
+        <div class="eyebrow">Duke University · Biology</div>
+        <h1 class="hero-name">Blake<br>Fauskee</h1>
+        <p class="hero-title">Postdoctoral Researcher, Biology</p>
         <div class="hero-links">
-          <a href="mailto:you@university.edu">Email</a>
+          <a href="/cdn-cgi/l/email-protection#33515f5258561d5552464058565673574658561d565746">Email</a>
+          <a href="https://scholar.google.com/citations?user=-ZcC_oQAAAAJ&hl=en" target="_blank">Google Scholar</a>
           <a href="#">CV</a>
-          <a href="#">Google Scholar</a>
-          <a href="#">Twitter / X</a>
         </div>
       </div>
       <div class="hero-right">
+        <div class="photo-placeholder">Photo coming soon</div>
         <div class="about-text">
-          <p>Welcome! I am an Assistant Professor in the Department of [Your Department] at [Your University]. My work sits at the intersection of [Field A] and [Field B], with a focus on [core research theme].</p>
-          <p>Before joining [University], I completed my PhD at [PhD Institution] and held a postdoctoral fellowship at [Postdoc Institution]. I have been fortunate to collaborate with researchers across [relevant fields or regions].</p>
-          <p>I am always happy to connect with prospective students and collaborators. Feel free to reach out by email.</p>
+          <p>I am a postdoctoral researcher in the Department of Biology at Duke University, working in the lab of Dr. Fay-Wei Li. My research focuses on the evolution of non-seed plants — the ferns, lycophytes, mosses, liverworts, and hornworts.</p>
+          <p>A central thread of my work is the evolution of organellar RNA editing, a post-transcriptional process in which specific pyrimidines in plastid and mitochondrial transcripts are exchanged, altering the encoded protein sequence. This phenomenon is widespread yet highly variable across land plant lineages, raising fundamental questions about why it evolved, how it is maintained, and whether it serves adaptive functions. I combine phylogenetic, comparative genomic, and experimental approaches to address these questions, and I am also interested in the biotechnological potential of plant RNA editing machinery as a platform for programmable base editing tools.</p>
+          <p>I completed my PhD at Duke University in December 2025 under the mentorship of Dr. Kathleen Pryer. I am broadly interested in applying phylogenetic tools to illuminate the evolutionary history of seed-free plants — a group that remains understudied relative to their remarkable diversity and ecological importance.</p>
         </div>
       </div>
     </div>
     <div class="info-strip">
       <div class="info-item">
         <div class="info-label">Affiliation</div>
-        <div class="info-value">[Your University]</div>
+        <div class="info-value">Duke University, Durham NC</div>
       </div>
       <div class="info-item">
         <div class="info-label">Research Interests</div>
-        <div class="info-value">[Topic A], [Topic B], [Topic C]</div>
+        <div class="info-value">RNA Editing, Fern Evolution, Phylogenomics</div>
       </div>
       <div class="info-item">
         <div class="info-label">Contact</div>
-        <div class="info-value">you@university.edu</div>
+        <div class="info-value"><a href="/cdn-cgi/l/email-protection#86e4eae7ede3a8e0e7f3f5ede3e3c6e2f3ede3a8e3e2f3"><span class="__cf_email__" data-cfemail="4b29272a202e652d2a3e38202e2e0b2f3e202e652e2f3e">[email&#160;protected]</span></a></div>
       </div>
     </div>
   </div>
@@ -542,16 +562,4 @@
     </div>
   </div>
 
-  <script>
-    function showPage(id) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      const idx = ['home','research','publications','teaching'].indexOf(id);
-      document.querySelectorAll('nav button')[idx].classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
-
-</body>
-</html>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd72
