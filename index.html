@@ -97,24 +97,8 @@
     .photo-frame {
       width: 160px;
       height: 200px;
-      border: 1px solid var(--line);
-      background: var(--card);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      position: relative;
+      overflow: hidden;
       flex-shrink: 0;
-    }
-
-    .photo-frame::before {
-      content: '';
-      position: absolute;
-      inset: 6px;
-      border: 1px solid var(--line);
     }
 
     .photo-frame img {
@@ -233,6 +217,8 @@
       font-size: 12px;
     }
 
+    .page-header a { color: var(--accent); text-decoration: none; }
+
     .section { margin-bottom: 3.5rem; }
 
     .section-label {
@@ -241,6 +227,87 @@
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .pub-entry {
+      display: grid;
+      grid-template-columns: 3.5rem 1fr;
+      gap: 1.5rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--line);
+      align-items: start;
+    }
+
+    .pub-year { font-size: 11px; color: var(--accent); padding-top: 0.2rem; line-height: 1.5; }
+
+    .pub-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      line-height: 1.45;
+      margin-bottom: 0.3rem;
+    }
+
+    .pub-authors {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+      line-height: 1.5;
+    }
+
+    .pub-journal {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .pub-note {
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      margin-top: 0.25rem;
+    }
+
+    .pub-link {
+      font-size: 10px;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+      margin-top: 0.35rem;
+      display: inline-block;
+      letter-spacing: 0.03em;
+    }
+
+    .pub-link:hover { border-bottom-color: var(--accent); }
+
+    .teaching-entry {
+      padding: 1.6rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .teaching-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+      line-height: 1.35;
+    }
+
+    .teaching-institution {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.2rem;
+    }
+
+    .teaching-years {
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .project-card {
@@ -280,76 +347,25 @@
       margin-right: 0.4rem;
     }
 
-    .pub-entry {
-      display: grid;
-      grid-template-columns: 3.5rem 1fr;
-      gap: 1.5rem;
-      padding: 1.25rem 0;
-      border-bottom: 1px solid var(--line);
-      align-items: start;
-    }
-
-    .pub-year { font-size: 11px; color: var(--accent); padding-top: 0.15rem; }
-
-    .pub-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      line-height: 1.4;
-      margin-bottom: 0.2rem;
-    }
-
-    .pub-authors { font-size: 11px; color: var(--muted); margin-bottom: 0.15rem; }
-
-    .pub-journal {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1rem;
-      color: var(--muted);
-    }
-
-    .course-row {
-      display: grid;
-      grid-template-columns: 6rem 1fr auto;
-      gap: 1.5rem;
-      align-items: baseline;
-      padding: 1.25rem 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .course-code { font-size: 11px; color: var(--accent); letter-spacing: 0.05em; }
-    .course-name { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; }
-    .course-term { font-size: 11px; color: var(--muted); white-space: nowrap; }
-
-    .teaching-note {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.1rem;
-      color: var(--muted);
-      margin-top: 2rem;
-      padding: 1.5rem;
-      border-left: 2px solid var(--accent);
-    }
-
     @media (max-width: 700px) {
       .home-hero { grid-template-columns: 1fr; }
       .hero-left { border-right: none; border-bottom: 1px solid var(--line); }
       .info-strip { grid-template-columns: 1fr; }
       .info-item { border-right: none; border-bottom: 1px solid var(--line); }
-      .course-row { grid-template-columns: 5rem 1fr; }
-      .course-term { grid-column: 2; }
       nav button { padding: 0 0.75rem; font-size: 10px; }
+      .pub-entry { grid-template-columns: 2.5rem 1fr; gap: 1rem; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <a href="#" class="site-name" onclick="showPage('home');return false;">Blake Fauskee</a>
+    <a href="#" class="site-name" onclick="showPage('home',0);return false;">Blake Fauskee</a>
     <nav>
-      <button class="active" onclick="showPage('home', this)">About</button>
-      <button onclick="showPage('research', this)">Research</button>
-      <button onclick="showPage('publications', this)">Publications</button>
-      <button onclick="showPage('teaching', this)">Teaching</button>
+      <button class="active" onclick="showPage('home',0)">About</button>
+      <button onclick="showPage('research',1)">Research</button>
+      <button onclick="showPage('publications',2)">Publications</button>
+      <button onclick="showPage('teaching',3)">Teaching</button>
     </nav>
   </header>
 
@@ -357,13 +373,15 @@
   <div id="home" class="page active">
     <div class="home-hero">
       <div class="hero-left">
-        <div class="photo-frame"><img src="headshot-for-site.jpg" alt="Blake Fauskee"></div>
+        <div class="photo-frame">
+          <img src="headshot-for-site.jpg" alt="Blake Fauskee">
+        </div>
         <div class="eyebrow">Duke University · Biology</div>
         <h1 class="hero-name">Blake<br>Fauskee</h1>
         <p class="hero-title">Postdoctoral Researcher, Biology</p>
         <div class="hero-links">
           <a href="https://scholar.google.com/citations?user=-ZcC_oQAAAAJ&hl=en" target="_blank">Google Scholar</a>
-          <a href="#">CV</a>
+          <a href="fauskee-cv-11.11.25.pdf" target="_blank">CV</a>
           <a href="https://github.com/bfauskee" target="_blank">GitHub</a>
         </div>
       </div>
@@ -402,18 +420,13 @@
         <div class="section-label">Current Projects</div>
         <div class="project-card">
           <h3>Project Title One</h3>
-          <p>A brief description of this research project. What question does it address, what methods are used, and what are the broader implications?</p>
-          <span class="tag">Methods</span><span class="tag">Topic A</span>
+          <p>Description coming soon.</p>
+          <span class="tag">Phylogenetics</span><span class="tag">RNA Editing</span>
         </div>
         <div class="project-card">
           <h3>Project Title Two</h3>
-          <p>A brief description of this second research project.</p>
-          <span class="tag">Collaborative</span><span class="tag">Topic B</span>
-        </div>
-        <div class="project-card">
-          <h3>Project Title Three</h3>
-          <p>A third project description.</p>
-          <span class="tag">Topic C</span>
+          <p>Description coming soon.</p>
+          <span class="tag">Ferns</span><span class="tag">Genomics</span>
         </div>
       </div>
     </div>
@@ -424,26 +437,96 @@
     <div class="page-inner">
       <div class="page-header">
         <h1>Publications</h1>
-        <p>Peer-reviewed articles, book chapters, and working papers</p>
+        <p>For a complete and up-to-date list, see my <a href="https://scholar.google.com/citations?user=-ZcC_oQAAAAJ&hl=en" target="_blank">Google Scholar</a> profile.</p>
       </div>
+
       <div class="section">
-        <div class="section-label">Journal Articles</div>
+        <div class="section-label">Submitted &amp; In Preparation</div>
+
+        <div class="pub-entry">
+          <div class="pub-year">In review</div>
+          <div>
+            <div class="pub-title">Losing genes, gaining edits: relaxed selection and inverted repeat expansion shape RNA editing in Schizaeaceae plastomes</div>
+            <div class="pub-authors">Fauskee, B.D.*, Kuo, L.Y.*, Kwok van der Giezen, F., and Pryer, K.M.</div>
+            <div class="pub-journal">In review at The Plant Journal</div>
+            <div class="pub-note">* Both authors contributed equally</div>
+          </div>
+        </div>
+
+        <div class="pub-entry">
+          <div class="pub-year">In prep</div>
+          <div>
+            <div class="pub-title">The role of reticulate evolution in biodiversity formation: the case of neotropical Adiantum ferns</div>
+            <div class="pub-authors">Chen, C.C., Lehtonen, S., Prado, J., Fauskee, B.D., GoFlag Consortium, and Tuomisto, H.</div>
+            <div class="pub-journal">In preparation</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Published</div>
+
+        <div class="pub-entry">
+          <div class="pub-year">2025</div>
+          <div>
+            <div class="pub-title">Evolutionary mobility and genetic dynamics of MORFFO genes: shuttling among ancient plant lineages</div>
+            <div class="pub-authors">Labiak, P.H., Kuo, L.Y., Fauskee, B.D., and Karol, K.G.</div>
+            <div class="pub-journal">New Phytologist</div>
+            <a class="pub-link" href="https://doi.org/10.1111/nph.70986" target="_blank">doi.org/10.1111/nph.70986 ↗</a>
+          </div>
+        </div>
+
+        <div class="pub-entry">
+          <div class="pub-year">2025</div>
+          <div>
+            <div class="pub-title">Comparative phylogenetic analyses of RNA editing in fern plastomes suggest possible adaptive innovations</div>
+            <div class="pub-authors">Fauskee, B.D., Kuo, L.Y., Heath, T.A., Xie, P.J., and Pryer, K.M.</div>
+            <div class="pub-journal">New Phytologist 247:2945–2963</div>
+            <a class="pub-link" href="https://doi.org/10.1111/nph.70244" target="_blank">doi.org/10.1111/nph.70244 ↗</a>
+          </div>
+        </div>
+
+        <div class="pub-entry">
+          <div class="pub-year">2025</div>
+          <div>
+            <div class="pub-title">Ynesmexia: A novel genus uniting morphologically disparate cheilanthoid ferns</div>
+            <div class="pub-authors">Fauskee, B.D.*, Windham, M.D.*, and Pryer, K.M.</div>
+            <div class="pub-journal">Taxon 74:768–786</div>
+            <div class="pub-note">* Both authors contributed equally</div>
+            <a class="pub-link" href="https://doi.org/10.1002/tax.13340" target="_blank">doi.org/10.1002/tax.13340 ↗</a>
+          </div>
+        </div>
+
         <div class="pub-entry">
           <div class="pub-year">2024</div>
           <div>
-            <div class="pub-title">Title of Your Most Recent Article</div>
-            <div class="pub-authors">Fauskee, B., Co-Author Name</div>
-            <div class="pub-journal">Journal Name, Vol. 00, pp. 000–000</div>
+            <div class="pub-title">Ancient introgression in mouse lemurs (Microcebus: Cheirogaleidae) explains 20 years of phylogenetic uncertainty</div>
+            <div class="pub-authors">Fauskee, B.D., Crowl, A.C., Piatkowski, B.T., Yoder, A.D., and Tiley, G.P.</div>
+            <div class="pub-journal">Bulletin of the Society of Systematic Biologists 3</div>
+            <a class="pub-link" href="https://doi.org/10.18061/bssb.v3i1.9319" target="_blank">doi.org/10.18061/bssb.v3i1.9319 ↗</a>
           </div>
         </div>
+
         <div class="pub-entry">
-          <div class="pub-year">2023</div>
+          <div class="pub-year">2021</div>
           <div>
-            <div class="pub-title">Title of Another Article</div>
-            <div class="pub-authors">Fauskee, B.</div>
-            <div class="pub-journal">Journal Name, Vol. 00, pp. 000–000</div>
+            <div class="pub-title">Variation in frequency of plastid RNA editing within Adiantum (Pteridaceae) implies rapid evolution in fern plastomes</div>
+            <div class="pub-authors">Fauskee, B.D., Sigel, E.M., Pryer, K.M., and Grusz, A.L.</div>
+            <div class="pub-journal">American Journal of Botany 108:820–827</div>
+            <a class="pub-link" href="https://doi.org/10.1002/ajb2.1649" target="_blank">doi.org/10.1002/ajb2.1649 ↗</a>
           </div>
         </div>
+
+        <div class="pub-entry">
+          <div class="pub-year">2018</div>
+          <div>
+            <div class="pub-title">Mobile elements shape plastome evolution in ferns</div>
+            <div class="pub-authors">Robison, T.A., Grusz, A.L., Wolf, P.G., Mower, J.P., Fauskee, B.D., Sosa, K., and Schuettpelz, E.</div>
+            <div class="pub-journal">Genome Biology and Evolution 10:2558–2571</div>
+            <a class="pub-link" href="https://doi.org/10.1093/gbe/evy189" target="_blank">doi.org/10.1093/gbe/evy189 ↗</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -453,33 +536,39 @@
     <div class="page-inner">
       <div class="page-header">
         <h1>Teaching</h1>
-        <p>Undergraduate and graduate courses</p>
+        <p>Courses, workshops, and instructional experience</p>
       </div>
+
       <div class="section">
-        <div class="section-label">Current &amp; Recent Courses</div>
-        <div class="course-row">
-          <div class="course-code">XXX 101</div>
-          <div class="course-name">Course Name</div>
-          <div class="course-term">Fall 2024</div>
-        </div>
-        <div class="course-row">
-          <div class="course-code">XXX 250</div>
-          <div class="course-name">Course Name</div>
-          <div class="course-term">Spring 2024</div>
+        <div class="section-label">Courses</div>
+        <div class="teaching-entry">
+          <div class="teaching-role">Plant Diversity (BIO 344) — Instructor of Record</div>
+          <div class="teaching-institution">Duke University, Durham, NC</div>
         </div>
       </div>
-      <div class="teaching-note">
-        Add a note about your teaching philosophy here.
+
+      <div class="section">
+        <div class="section-label">Workshops</div>
+        <div class="teaching-entry">
+          <div class="teaching-role">Workshop on Molecular Evolution — Teaching Assistant</div>
+          <div class="teaching-institution">Marine Biological Laboratory, Woods Hole, MA</div>
+          <div class="teaching-years">2023 · 2024</div>
+        </div>
+        <div class="teaching-entry">
+          <div class="teaching-role">Phylogenomics Workshop — Instructor</div>
+          <div class="teaching-institution">University of Minnesota Duluth</div>
+        </div>
       </div>
+
     </div>
   </div>
 
   <script>
-    function showPage(id, btn) {
+    function showPage(id, idx) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
       document.getElementById(id).classList.add('active');
-      if (btn) btn.classList.add('active');
+      document.querySelectorAll('nav button')[idx].classList.add('active');
     }
   </script>
 
