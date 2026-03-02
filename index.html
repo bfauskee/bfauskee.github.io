@@ -301,25 +301,65 @@
     .research-pub-item a:hover { border-bottom-color: var(--accent); }
 
     /* ── FIGURES ── */
-    .research-fig {
-      margin: 2rem 0;
+   .fig-distribution,
+    .fig-schematic,
+    .fig-hornwort {
       border: 1px solid var(--line);
       background: var(--card);
-      padding: 1rem;
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
     }
 
-    .research-fig img {
+    .fig-distribution img,
+    .fig-schematic img,
+    .fig-hornwort img {
       width: 100%;
       display: block;
     }
 
-    .research-fig figcaption {
+    .fig-distribution figcaption,
+    .fig-schematic figcaption,
+    .fig-hornwort figcaption {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       font-style: italic;
       color: var(--muted);
-      margin-top: 0.75rem;
-      line-height: 1.6;
+      margin-top: 0.6rem;
+      line-height: 1.5;
+    }
+
+    .fig-distribution {
+      float: right;
+      width: 50%;
+      margin-left: 2rem;
+    }
+
+    .fig-schematic {
+      float: right;
+      width: 40%;
+      margin-left: 2rem;
+    }
+
+    .fig-hornwort {
+      float: right;
+      width: 55%;
+      margin-left: 2rem;
+    }
+
+    .research-body-wrap::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    @media (max-width: 700px) {
+      .fig-distribution,
+      .fig-schematic,
+      .fig-hornwort {
+        float: none;
+        width: 100%;
+        margin-left: 0;
+      }
     }
 
     /* ── PUBLICATIONS ── */
@@ -481,7 +521,7 @@
           <p>RNA editing is a post-transcriptional process in which specific nucleotides in RNA transcripts are chemically altered before translation. In land plant organelles — the chloroplast and mitochondria — this takes the form of pyrimidine exchanges at hundreds of sites scattered across the organellar transcriptomes. Two types of editing occur in land plants: cytidine-to-uridine (C-to-U) editing, which is nearly omnipresent across land plants, and uridine-to-cytidine (U-to-C) editing, which is far more restricted in distribution, occurring only in specific seed-free lineages including ferns, some lycophytes, and hornworts. Each editing site requires its own dedicated nuclear-encoded pentatricopeptide repeat (PPR) protein to recognize and modify the target, making the system extraordinarily expensive to maintain. PPR editing factors can account for up to 10% of all expressed proteins in plant cells (Gutmann et al., 2020), a remarkable allocation of cellular resources for a process whose adaptive significance has long been debated.</p>
         </div>
 
-        <figure class="research-fig">
+<figure class="fig-distribution">
           <img src="ubc-fig-2.jpg" alt="Distribution of organellar RNA editing in land plants">
           <figcaption>Distribution of organellar RNA editing in land plants. Blue dots represent the presence of C-to-U editing and red dots represent the presence of U-to-C editing.</figcaption>
         </figure>
@@ -494,7 +534,7 @@
           <p>The implication is significant: because plastids lack the nonsense-mediated decay machinery that eukaryotic cells use to degrade aberrant transcripts, stop codon edits near the 5′-end of transcripts may serve as molecular checkpoints that control whether a protein is made at all. This would give the nuclear genome — which encodes the PPR editing factors — fine-scale regulatory influence over plastid gene expression, blurring the boundary between neutral byproduct and adaptive innovation.</p>
         </div>
 
-        <figure class="research-fig">
+        <figure class="fig-schematic">
           <img src="lsrf-rna-edit-fig-working-cropped.jpg" alt="Schematic of RNA editing as an organellar gene regulatory mechanism">
           <figcaption>Schematic of how RNA editing may act as an organellar gene regulatory mechanism.</figcaption>
         </figure>
@@ -522,7 +562,7 @@
           <p>My ongoing work in hornworts begins with identifying and reconstructing the evolutionary history of organellar RNA editing sites across the group, establishing the phylogenetic framework needed to interpret what follows. With that foundation in place, the goal is to leverage the available nuclear genomes to systematically identify PPR proteins and pair them with their target editing sites — matching each editing factor to the specific transcript position it recognizes and modifies. These PPR–edit pairs can then be directly confirmed through targeted knockouts, providing the first rigorous experimental validation of editing factor function in this lineage. Finally, by overexpressing specific PPR factors, it becomes possible to disrupt the regulatory control that the nucleus exerts over individual editing events — directly testing whether the patterns of variable editing efficiency observed in my phylogenetic work reflect genuine regulatory modulation rather than noise. This pipeline — from evolutionary reconstruction to functional confirmation to experimental perturbation — represents a fully integrated approach to understanding how and why RNA editing persists as a regulated process in plant organelles.</p>
         </div>
 
-        <figure class="research-fig">
+        <figure class="fig-hornwort">
           <img src="lsrf-pland-horn.jpg" alt="Hornwort RNA editing and transformation">
           <figcaption>A. Presence of both editing types in hornworts. B. A hornwort. C. Successful transformation of the model hornwort <em>Anthoceros agrestis</em>.</figcaption>
         </figure>
