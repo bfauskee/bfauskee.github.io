@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,6 +79,7 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* ── HOME ── */
     .home-hero {
       display: grid;
       grid-template-columns: 1fr 1.6fr;
@@ -192,6 +194,7 @@
     .info-value a { color: var(--accent); text-decoration: none; }
     .info-value a:hover { opacity: 0.75; }
 
+    /* ── INNER PAGES ── */
     .page-inner {
       max-width: 820px;
       margin: 0 auto;
@@ -219,7 +222,7 @@
 
     .page-header a { color: var(--accent); text-decoration: none; }
 
-    .section { margin-bottom: 3.5rem; }
+    .section { margin-bottom: 4rem; }
 
     .section-label {
       font-size: 10px;
@@ -231,6 +234,64 @@
       border-bottom: 1px solid var(--line);
     }
 
+    /* ── RESEARCH ── */
+    .research-subhead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .research-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--ink);
+    }
+
+    .research-body p + p { margin-top: 1.25em; }
+
+    .research-pubs {
+      margin-top: 2rem;
+      padding: 1.25rem 1.5rem;
+      border-left: 2px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .research-pubs-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .research-pub-item {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .research-pub-item a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .research-pub-item a:hover { border-bottom-color: var(--accent); }
+
+    /* ── PUBLICATIONS ── */
     .pub-entry {
       display: grid;
       grid-template-columns: 3.5rem 1fr;
@@ -283,6 +344,7 @@
 
     .pub-link:hover { border-bottom-color: var(--accent); }
 
+    /* ── TEACHING ── */
     .teaching-entry {
       padding: 1.6rem 0;
       border-bottom: 1px solid var(--line);
@@ -310,43 +372,7 @@
       text-transform: uppercase;
     }
 
-    .project-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      padding: 1.75rem 2rem;
-      margin-bottom: 1rem;
-      transition: border-color 0.2s;
-    }
-
-    .project-card:hover { border-color: var(--accent); }
-
-    .project-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 400;
-      margin-bottom: 0.5rem;
-    }
-
-    .project-card p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      font-weight: 300;
-      line-height: 1.7;
-      color: var(--muted);
-    }
-
-    .tag {
-      display: inline-block;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border: 1px solid var(--line);
-      color: var(--muted);
-      padding: 0.2rem 0.6rem;
-      margin-top: 0.75rem;
-      margin-right: 0.4rem;
-    }
-
+    /* ── RESPONSIVE ── */
     @media (max-width: 700px) {
       .home-hero { grid-template-columns: 1fr; }
       .hero-left { border-right: none; border-bottom: 1px solid var(--line); }
@@ -416,18 +442,45 @@
         <h1>Research</h1>
         <p>Current projects and ongoing work</p>
       </div>
+
       <div class="section">
-        <div class="section-label">Current Projects</div>
-        <div class="project-card">
-          <h3>Project Title One</h3>
-          <p>Description coming soon.</p>
-          <span class="tag">Phylogenetics</span><span class="tag">RNA Editing</span>
+        <div class="section-label">RNA Editing in Plant Organelles</div>
+
+        <div class="research-body">
+          <p>RNA editing is a post-transcriptional process in which specific nucleotides in RNA transcripts are chemically altered before translation. In land plant organelles — the plastid and mitochondria — this takes the form of pyrimidine exchanges at hundreds of sites scattered across the transcriptome. Two types of editing occur: cytidine-to-uridine (C-to-U) editing, which is nearly omnipresent across land plants, and uridine-to-cytidine (U-to-C) editing, which is far more restricted in distribution, occurring only in specific seed-free lineages including ferns, some lycophytes, and hornworts. Each editing site requires its own dedicated nuclear-encoded pentatricopeptide repeat (PPR) protein to recognize and modify the target, making the system extraordinarily expensive to maintain. PPR editing factors can account for up to 10% of all expressed proteins in plant cells (Gutmann et al., 2020), a remarkable allocation of cellular resources for a process whose adaptive significance has long been debated.</p>
         </div>
-        <div class="project-card">
-          <h3>Project Title Two</h3>
-          <p>Description coming soon.</p>
-          <span class="tag">Ferns</span><span class="tag">Genomics</span>
+
+        <div class="research-subhead">Phylogenetic Evidence for Adaptive RNA Editing in Ferns</div>
+
+        <div class="research-body">
+          <p>The prevailing view has treated RNA editing as an essentially neutral compensatory mechanism — a molecular band-aid that corrects genomic mutations in organellar DNA that would otherwise produce nonfunctional proteins. Under this model, editing sites arise passively and persist because removing them would be deleterious, not because they serve any positive function. The system is, in other words, widely regarded as an evolutionary burden rather than an asset.</p>
+          <p>My work challenges this view. Ferns are unique among land plants in retaining both C-to-U and U-to-C editing in their plastomes, making them an exceptionally powerful system for comparative analysis. Using phylogenetic and comparative genomic approaches across fern lineages with contrasting evolutionary rates, I have found that while most editing sites are consistent with neutral evolution, a distinct subset — particularly edits at internal stop codons and start codons — are evolutionarily conserved and show signatures of selective regulation. These edits display lower and more variable editing efficiencies than typical corrective edits, suggesting they are not constitutively edited but rather modulated in response to cellular conditions.</p>
+          <p>The implication is significant: because plastids lack the nonsense-mediated decay machinery that eukaryotic cells use to degrade aberrant transcripts, stop codon edits near the 5′-end of transcripts may serve as molecular checkpoints that control whether a protein is made at all. This would give the nuclear genome — which encodes the PPR editing factors — fine-scale regulatory influence over plastid gene expression, blurring the boundary between neutral byproduct and adaptive innovation.</p>
         </div>
+
+        <div class="research-pubs">
+          <div class="research-pubs-label">Relevant Publications</div>
+          <div class="research-pub-item">
+            Fauskee, B.D., Sigel, E.M., Pryer, K.M., and Grusz, A.L. 2021. Variation in frequency of plastid RNA editing within <em>Adiantum</em> (Pteridaceae) implies rapid evolution in fern plastomes. <em>American Journal of Botany</em> 108:820–827.
+            <a href="https://doi.org/10.1002/ajb2.1649" target="_blank">doi.org/10.1002/ajb2.1649 ↗</a>
+          </div>
+          <div class="research-pub-item">
+            Fauskee, B.D., Kuo, L.Y., Heath, T.A., Xie, P.J., and Pryer, K.M. 2025. Comparative phylogenetic analyses of RNA editing in fern plastomes suggest possible adaptive innovations. <em>New Phytologist</em> 247:2945–2963.
+            <a href="https://doi.org/10.1111/nph.70244" target="_blank">doi.org/10.1111/nph.70244 ↗</a>
+          </div>
+          <div class="research-pub-item">
+            Fauskee, B.D.*, Kuo, L.Y.*, Kwok van der Giezen, F., and Pryer, K.M. Losing genes, gaining edits: relaxed selection and inverted repeat expansion shape RNA editing in Schizaeaceae plastomes. In review at <em>The Plant Journal</em>.
+            <a href="https://github.com/bfauskee/fauskee-fern-rna-editing-scripts/blob/main/preprint/fauskee_schizaeales_preprint.pdf" target="_blank">Preprint ↗</a>
+          </div>
+        </div>
+
+        <div class="research-subhead">Hornworts as an Experimental System for Dissecting RNA Editing</div>
+
+        <div class="research-body">
+          <p>Hornworts present a compelling opportunity to move beyond comparative inference and toward direct experimental tests of RNA editing function. Like ferns, hornworts possess both C-to-U and U-to-C editing in their organelles, making them one of the few plant groups in which the full complexity of pyrimidine-based editing can be studied. Critically, however, hornworts offer two major practical advantages that ferns currently lack: well-assembled nuclear genomes and established transformation protocols. Together these resources open the door to experiments that are simply not yet possible in ferns.</p>
+          <p>My ongoing work in hornworts begins with identifying and reconstructing the evolutionary history of organellar RNA editing sites across the group, establishing the phylogenetic framework needed to interpret what follows. With that foundation in place, the goal is to leverage the available nuclear genomes to systematically identify PPR proteins and pair them with their target editing sites — matching each editing factor to the specific transcript position it recognizes and modifies. These PPR–edit pairs can then be directly confirmed through targeted knockouts, providing the first rigorous experimental validation of editing factor function in this lineage. Finally, by overexpressing specific PPR factors, it becomes possible to disrupt the regulatory control that the nucleus exerts over individual editing events — directly testing whether the patterns of variable editing efficiency observed in my phylogenetic work reflect genuine regulatory modulation rather than noise. This pipeline — from evolutionary reconstruction to functional confirmation to experimental perturbation — represents a fully integrated approach to understanding how and why RNA editing persists as a regulated process in plant organelles.</p>
+        </div>
+
       </div>
     </div>
   </div>
@@ -557,7 +610,6 @@
         <div class="teaching-entry">
           <div class="teaching-role">Phylogenomics Workshop — Instructor</div>
           <div class="teaching-institution">University of Minnesota Duluth</div>
-          div class="teaching-years">2025</div>
         </div>
       </div>
 
@@ -575,3 +627,4 @@
 
 </body>
 </html>
+```
