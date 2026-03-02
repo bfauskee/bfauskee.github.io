@@ -233,60 +233,83 @@
       border-bottom: 1px solid var(--line);
     }
 
-    /* ── RESEARCH ── */
-    .research-subhead {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 400;
-      font-style: italic;
-      color: var(--ink);
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid var(--line);
-    }
+   <!-- RESEARCH -->
+<div id="research" class="page">
+  <div class="page-inner">
 
-    .research-body {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 300;
-      line-height: 1.85;
-      color: var(--ink);
-    }
+    <div class="page-header">
+      <h1>Research</h1>
+      <p>Current projects and ongoing work</p>
+    </div>
 
-    .research-body p + p { margin-top: 1.25em; }
+    <!-- ========================= -->
+    <!-- PROJECT CARD GRID (HOME) -->
+    <!-- ========================= -->
 
-    .research-pubs {
-      margin-top: 2rem;
-      padding: 1.25rem 1.5rem;
-      border-left: 2px solid var(--line);
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
+    <div id="research-home">
 
-    .research-pubs-label {
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.25rem;
-    }
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:3rem;">
 
-    .research-pub-item {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-weight: 300;
-      line-height: 1.6;
-      color: var(--muted);
-    }
+        <div class="project-card" onclick="showProject('rnaProject')">
+          <h3>RNA Editing in Plant Organelles</h3>
+          <p>Investigating the evolutionary forces shaping organellar RNA editing across seed-free plant lineages.</p>
+          <span class="tag">Phylogenetics</span>
+          <span class="tag">RNA Editing</span>
+          <span class="tag">Hornworts</span>
+        </div>
 
-    .research-pub-item a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
+        <div class="project-card" onclick="showProject('ynesmexiaProject')">
+          <h3><em>Ynesmexia</em> &amp; Fern Systematics</h3>
+          <p>Resolving deep phylogenetic relationships and morphological disparity in cheilanthoid ferns.</p>
+          <span class="tag">Systematics</span>
+          <span class="tag">Cheilanthoid Ferns</span>
+          <span class="tag">Taxonomy</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- PROJECT PAGE — RNA EDITING -->
+    <!-- ========================= -->
+
+    <div id="rnaProject" class="project-page">
+
+      <div class="project-back" onclick="showResearchHome()">← Back to Research</div>
+
+      <div class="section-label">RNA Editing in Plant Organelles</div>
+
+      <div class="research-body">
+        <p>RNA editing is a post-transcriptional process in which specific nucleotides in RNA transcripts are chemically altered before translation. In land plant organelles — the plastid and mitochondria — this takes the form of pyrimidine exchanges at hundreds of sites scattered across the transcriptome...</p>
+
+        <p>The prevailing view has treated RNA editing as an essentially neutral compensatory mechanism — a molecular band-aid that corrects genomic mutations...</p>
+
+        <p>My work challenges this view. Ferns are unique among land plants in retaining both C-to-U and U-to-C editing in their plastomes...</p>
+      </div>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- PROJECT PAGE — YNESMEXIA -->
+    <!-- ========================= -->
+
+    <div id="ynesmexiaProject" class="project-page">
+
+      <div class="project-back" onclick="showResearchHome()">← Back to Research</div>
+
+      <div class="section-label"><em>Ynesmexia</em> & Fern Systematics</div>
+
+      <div class="research-body">
+        <p>Content about Ynesmexia goes here.</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
 
     .research-pub-item a:hover { border-bottom-color: var(--accent); }
 
