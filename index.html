@@ -11,7 +11,7 @@
     :root {
       --bg: #0f1f14;
       --ink: #e8efe9;
-      --muted: #7aA882;
+      --muted: #7aa882;
       --accent: #a3d9a5;
       --line: #1f3626;
       --card: #162b1c;
@@ -28,7 +28,6 @@
       min-height: 100vh;
     }
 
-    /* ── HEADER ── */
     header {
       border-bottom: 1px solid var(--line);
       padding: 0 5vw;
@@ -38,7 +37,7 @@
       height: 64px;
       position: sticky;
       top: 0;
-      background: var(--bg);
+      background: #0a1a0f;
       z-index: 100;
     }
 
@@ -51,7 +50,7 @@
       text-decoration: none;
     }
 
-    nav { display: flex; gap: 0; }
+    nav { display: flex; }
 
     nav button {
       background: none;
@@ -70,10 +69,7 @@
 
     nav button:hover { color: var(--ink); }
     nav button.active { color: var(--accent); border-bottom-color: var(--accent); }
-    
-    header { background: #0a1a0f; }
 
-    /* ── PAGES ── */
     .page { display: none; animation: fadeUp 0.4s ease both; }
     .page.active { display: block; }
 
@@ -82,20 +78,50 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── HOME ── */
     .home-hero {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.6fr;
       min-height: calc(100vh - 64px);
       border-bottom: 1px solid var(--line);
     }
 
     .hero-left {
-      padding: 8vw 5vw 8vw 5vw;
+      padding: 4vw 4vw 4vw 5vw;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      gap: 1.2rem;
       border-right: 1px solid var(--line);
+    }
+
+    .photo-frame {
+      width: 160px;
+      height: 200px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1px solid var(--line);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .eyebrow {
@@ -103,28 +129,25 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1.5rem;
     }
 
     .hero-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-size: clamp(2.6rem, 4vw, 4.5rem);
       font-weight: 300;
       line-height: 1.05;
-      margin-bottom: 1.5rem;
       color: var(--ink);
     }
 
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-style: italic;
       color: var(--muted);
-      margin-bottom: 2.5rem;
       font-weight: 300;
     }
 
-    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
 
     .hero-links a {
       font-size: 11px;
@@ -134,46 +157,15 @@
       text-decoration: none;
       border-bottom: 1px solid var(--accent);
       padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s, opacity 0.2s;
+      transition: opacity 0.2s;
     }
 
     .hero-links a:hover { opacity: 0.7; }
 
     .hero-right {
-      padding: 8vw 5vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-right::before {
-      content: '';
-    }
-
-    .photo-placeholder {
-      width: 160px;
-      height: 200px;
-      border: 1px solid var(--line);
-      background: var(--card);
+      padding: 6vw 5vw;
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 2rem;
-      flex-shrink: 0;
-      position: relative;
-    }
-
-    .photo-placeholder::before {
-      content: '';
-      position: absolute;
-      inset: 6px;
-      border: 1px solid var(--line);
     }
 
     .about-text {
@@ -182,8 +174,6 @@
       font-weight: 300;
       line-height: 1.75;
       color: var(--ink);
-      position: relative;
-      z-index: 1;
     }
 
     .about-text p + p { margin-top: 1.25em; }
@@ -218,7 +208,6 @@
     .info-value a { color: var(--accent); text-decoration: none; }
     .info-value a:hover { opacity: 0.75; }
 
-    /* ── INNER PAGES ── */
     .page-inner {
       max-width: 820px;
       margin: 0 auto;
@@ -254,7 +243,6 @@
       margin-bottom: 1.25rem;
     }
 
-    /* research cards */
     .project-card {
       background: var(--card);
       border: 1px solid var(--line);
@@ -267,58 +255,50 @@
 
     .project-card h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 400;
       margin-bottom: 0.5rem;
     }
 
     .project-card p {
-      font-size: 12px;
-      color: var(--muted);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 300;
       line-height: 1.7;
+      color: var(--muted);
     }
 
     .tag {
       display: inline-block;
-      font-size: 9px;
-      letter-spacing: 0.12em;
+      font-size: 10px;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       border: 1px solid var(--line);
-      padding: 2px 8px;
+      color: var(--muted);
+      padding: 0.2rem 0.6rem;
       margin-top: 0.75rem;
       margin-right: 0.4rem;
-      color: var(--muted);
     }
 
-    /* publications */
     .pub-entry {
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--line);
       display: grid;
-      grid-template-columns: 3rem 1fr;
+      grid-template-columns: 3.5rem 1fr;
       gap: 1.5rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--line);
       align-items: start;
     }
 
-    .pub-year {
-      font-size: 11px;
-      color: var(--accent);
-      padding-top: 3px;
-      font-weight: 400;
-    }
+    .pub-year { font-size: 11px; color: var(--accent); padding-top: 0.15rem; }
 
     .pub-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 400;
-      margin-bottom: 0.3rem;
-    }
-
-    .pub-authors {
-      font-size: 11px;
-      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.4;
       margin-bottom: 0.2rem;
     }
+
+    .pub-authors { font-size: 11px; color: var(--muted); margin-bottom: 0.15rem; }
 
     .pub-journal {
       font-family: 'Cormorant Garamond', serif;
@@ -327,7 +307,6 @@
       color: var(--muted);
     }
 
-    /* teaching */
     .course-row {
       display: grid;
       grid-template-columns: 6rem 1fr auto;
@@ -337,22 +316,9 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .course-code {
-      font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-    }
-
-    .course-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-    }
-
-    .course-term {
-      font-size: 11px;
-      color: var(--muted);
-      white-space: nowrap;
-    }
+    .course-code { font-size: 11px; color: var(--accent); letter-spacing: 0.05em; }
+    .course-name { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; }
+    .course-term { font-size: 11px; color: var(--muted); white-space: nowrap; }
 
     .teaching-note {
       font-family: 'Cormorant Garamond', serif;
@@ -364,11 +330,9 @@
       border-left: 2px solid var(--accent);
     }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 700px) {
       .home-hero { grid-template-columns: 1fr; }
       .hero-left { border-right: none; border-bottom: 1px solid var(--line); }
-      .hero-right::before { font-size: 15rem; }
       .info-strip { grid-template-columns: 1fr; }
       .info-item { border-right: none; border-bottom: 1px solid var(--line); }
       .course-row { grid-template-columns: 5rem 1fr; }
@@ -382,10 +346,10 @@
   <header>
     <a href="#" class="site-name" onclick="showPage('home');return false;">Blake Fauskee</a>
     <nav>
-      <button class="active" onclick="showPage('home')">About</button>
-      <button onclick="showPage('research')">Research</button>
-      <button onclick="showPage('publications')">Publications</button>
-      <button onclick="showPage('teaching')">Teaching</button>
+      <button class="active" onclick="showPage('home', this)">About</button>
+      <button onclick="showPage('research', this)">Research</button>
+      <button onclick="showPage('publications', this)">Publications</button>
+      <button onclick="showPage('teaching', this)">Teaching</button>
     </nav>
   </header>
 
@@ -393,16 +357,17 @@
   <div id="home" class="page active">
     <div class="home-hero">
       <div class="hero-left">
+        <div class="photo-frame"><img src="headshot-for-site.pdf" alt="Blake Fauskee"></div>
         <div class="eyebrow">Duke University · Biology</div>
         <h1 class="hero-name">Blake<br>Fauskee</h1>
         <p class="hero-title">Postdoctoral Researcher, Biology</p>
         <div class="hero-links">
           <a href="https://scholar.google.com/citations?user=-ZcC_oQAAAAJ&hl=en" target="_blank">Google Scholar</a>
           <a href="#">CV</a>
+          <a href="https://github.com/bfauskee" target="_blank">GitHub</a>
         </div>
       </div>
       <div class="hero-right">
-        <div class="photo-placeholder">Photo coming soon</div>
         <div class="about-text">
           <p>I am a postdoctoral researcher in the Department of Biology at Duke University, working in the lab of Dr. Fay-Wei Li. My research focuses on the evolution of non-seed plants — the ferns, lycophytes, mosses, liverworts, and hornworts.</p>
           <p>A central thread of my work is the evolution of organellar RNA editing, a post-transcriptional process in which specific pyrimidines in plastid and mitochondrial transcripts are exchanged, altering the encoded protein sequence. This phenomenon is widespread yet highly variable across land plant lineages, raising fundamental questions about why it evolved, how it is maintained, and whether it serves adaptive functions. I combine phylogenetic, comparative genomic, and experimental approaches to address these questions, and I am also interested in the biotechnological potential of plant RNA editing machinery as a platform for programmable base editing tools.</p>
@@ -438,24 +403,18 @@
         <div class="project-card">
           <h3>Project Title One</h3>
           <p>A brief description of this research project. What question does it address, what methods are used, and what are the broader implications?</p>
-          <span class="tag">Methods</span><span class="tag">Topic A</span><span class="tag">Funded</span>
+          <span class="tag">Methods</span><span class="tag">Topic A</span>
         </div>
         <div class="project-card">
           <h3>Project Title Two</h3>
-          <p>A brief description of this second research project. Explain the key theoretical contribution or empirical focus and note any collaborators or funding sources.</p>
+          <p>A brief description of this second research project.</p>
           <span class="tag">Collaborative</span><span class="tag">Topic B</span>
         </div>
         <div class="project-card">
           <h3>Project Title Three</h3>
-          <p>A third project description. If this is in early stages, describe the research question and motivation rather than results.</p>
-          <span class="tag">Working Paper</span><span class="tag">Topic C</span>
+          <p>A third project description.</p>
+          <span class="tag">Topic C</span>
         </div>
-      </div>
-      <div class="section">
-        <div class="section-label">Broad Research Themes</div>
-        <p style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; line-height:1.8;">
-          My research broadly engages with [Theme 1], exploring how [brief explanation]. A second strand of work examines [Theme 2], drawing on [methods or disciplines]. I am particularly interested in [specific angle or puzzle that motivates your work].
-        </p>
       </div>
     </div>
   </div>
@@ -473,46 +432,16 @@
           <div class="pub-year">2024</div>
           <div>
             <div class="pub-title">Title of Your Most Recent Article</div>
-            <div class="pub-authors">Your Name, Co-Author Name</div>
-            <div class="pub-journal">Journal of [Field], Vol. 12, No. 3, pp. 100–124</div>
+            <div class="pub-authors">Fauskee, B., Co-Author Name</div>
+            <div class="pub-journal">Journal Name, Vol. 00, pp. 000–000</div>
           </div>
         </div>
         <div class="pub-entry">
           <div class="pub-year">2023</div>
           <div>
             <div class="pub-title">Title of Another Article</div>
-            <div class="pub-authors">Your Name</div>
-            <div class="pub-journal">Annual Review of [Field], Vol. 8, pp. 45–70</div>
-          </div>
-        </div>
-        <div class="pub-entry">
-          <div class="pub-year">2022</div>
-          <div>
-            <div class="pub-title">Earlier Published Work Title</div>
-            <div class="pub-authors">Co-Author Name, Your Name</div>
-            <div class="pub-journal">Journal of [Field], Vol. 5, No. 1, pp. 200–230</div>
-          </div>
-        </div>
-      </div>
-      <div class="section">
-        <div class="section-label">Working Papers</div>
-        <div class="pub-entry">
-          <div class="pub-year">2025</div>
-          <div>
-            <div class="pub-title">Title of Working Paper</div>
-            <div class="pub-authors">Your Name</div>
-            <div class="pub-journal">Under review — [Target Journal]</div>
-          </div>
-        </div>
-      </div>
-      <div class="section">
-        <div class="section-label">Book Chapters</div>
-        <div class="pub-entry">
-          <div class="pub-year">2023</div>
-          <div>
-            <div class="pub-title">Chapter Title</div>
-            <div class="pub-authors">Your Name</div>
-            <div class="pub-journal">in <em>Book Title</em>, ed. Editor Name. Publisher.</div>
+            <div class="pub-authors">Fauskee, B.</div>
+            <div class="pub-journal">Journal Name, Vol. 00, pp. 000–000</div>
           </div>
         </div>
       </div>
@@ -530,35 +459,29 @@
         <div class="section-label">Current &amp; Recent Courses</div>
         <div class="course-row">
           <div class="course-code">XXX 101</div>
-          <div class="course-name">Introduction to [Your Field]</div>
+          <div class="course-name">Course Name</div>
           <div class="course-term">Fall 2024</div>
         </div>
         <div class="course-row">
           <div class="course-code">XXX 250</div>
-          <div class="course-name">Advanced Topics in [Sub-Field]</div>
+          <div class="course-name">Course Name</div>
           <div class="course-term">Spring 2024</div>
-        </div>
-        <div class="course-row">
-          <div class="course-code">XXX 480</div>
-          <div class="course-name">Graduate Seminar: [Topic]</div>
-          <div class="course-term">Fall 2023</div>
-        </div>
-        <div class="course-row">
-          <div class="course-code">XXX 310</div>
-          <div class="course-name">Research Methods in [Field]</div>
-          <div class="course-term">Spring 2023</div>
         </div>
       </div>
       <div class="teaching-note">
-        I aim to create an inclusive and intellectually rigorous classroom environment. My teaching draws directly on my research and emphasizes critical thinking, close reading of primary sources, and evidence-based argumentation.
-      </div>
-      <div class="section" style="margin-top:2.5rem;">
-        <div class="section-label">Graduate Advising</div>
-        <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; line-height:1.8;">
-          I welcome inquiries from prospective PhD students interested in [Research Area]. Please email me with your CV and a brief statement of your research interests before applying. I am currently accepting students for the [Year] cohort.
-        </p>
+        Add a note about your teaching philosophy here.
       </div>
     </div>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd72
+  <script>
+    function showPage(id, btn) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      if (btn) btn.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
